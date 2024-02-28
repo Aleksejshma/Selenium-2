@@ -29,7 +29,8 @@ public class ApplicationTest {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
+        driver.get("http://localhost:9999");
 
 
     }
@@ -42,7 +43,7 @@ public class ApplicationTest {
 
     @Test
     void shouldTestSomething() throws InterruptedException {
-        driver.get("http://localhost:9999");
+
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Петров Петр");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+89209756316");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
